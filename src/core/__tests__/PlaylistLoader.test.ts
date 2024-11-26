@@ -57,13 +57,13 @@ describe('PlaylistLoader', () => {
 
   describe('load', () => {
     it('should handle network errors', async () => {
-      global.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
+      globalThis.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
 
       await expect(loader.load()).rejects.toThrow('Network error');
     });
 
     it('should handle non-200 responses', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: false,
         status: 404,
         statusText: 'Not Found',
@@ -73,7 +73,7 @@ describe('PlaylistLoader', () => {
     });
 
     it('should abort ongoing requests', async () => {
-      global.fetch = vi.fn().mockImplementation((_, { signal }) => {
+      globalThis.fetch = vi.fn().mockImplementation((_, { signal }) => {
         return new Promise((resolve, reject) => {
           const timeoutId = setTimeout(() => {
             resolve(new Response(''));
