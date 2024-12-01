@@ -1,4 +1,4 @@
-//import { HLSPlayer } from './core/HLSPlayer';
+import { HLSPlayer } from './core/HLSPlayer';
 import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
