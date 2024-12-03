@@ -23,7 +23,7 @@ export function validateMediaManifest(manifest: string): void {
   if (!MediaManifestPatterns.TARGET_DURATION.test(manifest)) {
     console.warn(ValidatorMessages.Warnings.MISSING_TARGET_DURATION);
   }
-  ww;
+
   if (!MediaManifestPatterns.VERSION.test(manifest)) {
     console.warn(ValidatorMessages.Warnings.MISSING_VERSION);
   }
