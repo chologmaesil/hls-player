@@ -1,25 +1,82 @@
-#app {
-  max-width: 800px;
+.container {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
 }
 
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.players-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.player-box {
+  flex: 1;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.player-box h2 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
 video {
   width: 100%;
-  margin-bottom: 20px;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.metrics {
+  background: white;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.metrics div {
+  margin-bottom: 8px;
+}
+
+.metrics div:last-child {
+  margin-bottom: 0;
 }
 
 .controls {
-  display: flex;
-  gap: 10px;
-}
-
-#streamUrl {
-  flex: 1;
-  padding: 8px;
+  text-align: center;
 }
 
 button {
-  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
 }

@@ -1,23 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HLS Player Test</title>
-  </head>
-  <body>
-    <div id="app">
-      <video id="video" controls></video>
-      <div class="controls">
-        <input
-          type="text"
-          id="streamUrl"
-          value="https://kr.object.ncloudstorage.com/lico/live/ad0c7589-ed03-4496-ab79-8273a7e93307/index.m3u8"
-          placeholder="HLS Stream URL"
-        />
-        <button id="loadStream">Load Stream</button>
-      </div>
+    <title>HLS Player Performance Test</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .player-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .video-container {
+            margin-bottom: 20px;
+        }
+        video {
+            width: 100%;
+            max-width: 800px;
+        }
+        .metrics {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HLS Player Performance Comparison</h1>
+        
+        <div class="player-section">
+            <h2>Custom Player</h2>
+            <div class="video-container">
+                <video id="customPlayer" controls></video>
+            </div>
+            <div class="metrics" id="customMetrics">
+                <div>Initial Load Time: <span id="customLoadTime">-</span></div>
+                <div>First Frame Time: <span id="customFirstFrame">-</span></div>
+                <div>Memory Usage: <span id="customMemory">-</span></div>
+            </div>
+            <button id="testCustom">Test Custom Player</button>
+        </div>
+
+        <div class="player-section">
+            <h2>HLS.js Player</h2>
+            <div class="video-container">
+                <video id="hlsjsPlayer" controls></video>
+            </div>
+            <div class="metrics" id="hlsjsMetrics">
+                <div>Initial Load Time: <span id="hlsjsLoadTime">-</span></div>
+                <div>First Frame Time: <span id="hlsjsFirstFrame">-</span></div>
+                <div>Memory Usage: <span id="hlsjsMemory">-</span></div>
+            </div>
+            <button id="testHlsjs">Test HLS.js Player</button>
+        </div>
+
+        <div class="controls">
+            <button id="resetTest">Reset All Tests</button>
+        </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
-  </body>
+</body>
 </html>

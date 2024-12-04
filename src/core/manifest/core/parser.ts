@@ -52,6 +52,8 @@ function parseSegments(content: string, baseUrl: string): Segment[] {
   let match;
   const mediaSequence = parseMediaSequence(content);
 
+  MediaManifestPatterns.SEGMENTS.lastIndex = 0;
+
   while ((match = MediaManifestPatterns.SEGMENTS.exec(content))) {
     segments.push({
       duration: parseFloat(match[1]),
